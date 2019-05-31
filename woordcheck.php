@@ -12,21 +12,19 @@ $result = curl_exec($curl);
 
 curl_close($curl);
 
-$result = json_decode($result,true);
+$result = json_decode($result, true);
 
 if ($result["matches"]) {
 
-echo $result["matches"][0]["message"] . "<br>";
+    echo $result["matches"][0]["message"] . "<br>";
 
-echo "<br> U schreef " . $woord . "<br>";
+    echo "<br> U schreef " . $woord . "<br>";
 
-echo "<br> Bedoelt u: <br>";
+    echo "<br> Bedoelt u: <br>";
 
-for ($i=0; $i<count($result["matches"][0]["replacements"]); $i++) {
-    echo $result["matches"][0]["replacements"][$i]["value"];
-    echo "<br>";
+    foreach ($result["matches"][0]["replacements"] as $val) {
+        echo $val["value"] . "</br>";
     }
-
 } else {
     echo "Er lijkt me niets mis met " . $woord;
 }
