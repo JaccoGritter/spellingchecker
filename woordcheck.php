@@ -12,6 +12,8 @@ $result = curl_exec($curl);
 
 curl_close($curl);
 
+// $result = file_get_contents($requestURL);    - can be used instead of curl but curl is quicker/safer(?)
+
 $result = json_decode($result, true);
 
 if ($result["matches"]) {
